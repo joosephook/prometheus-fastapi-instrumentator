@@ -208,7 +208,7 @@ class PrometheusInstrumentatorMiddleware:
                     request=request,
                     response=response,
                     method=request.method,
-                    modified_handler=handler,
+                    modified_handler=handler.format(**Request(scope).path_params),
                     modified_status=status,
                     modified_duration=duration,
                     modified_duration_without_streaming=duration_without_streaming,
